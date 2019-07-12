@@ -1,0 +1,27 @@
+<section id="main-content">
+  <section class="wrapper">
+    <div class="panel">
+      <header class="panel-heading">
+        <h2>
+          <%= @album.try(:name) %>
+          <%= link_to 'Back', root_path, class: "btn btn-default pull-right" %>
+        </h2>
+      </header>
+      <div class="panel-body">
+        <p>
+          <b>
+            Name:
+          </b>
+          <%= @album.name %>
+        </p>
+        <br/>
+        <% if user_signed_in? %>
+          <%= link_to 'Edit',edit_album_path(@album) %>
+          <br/>
+          <%= link_to 'Destroy', album_path(@album),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</section>
