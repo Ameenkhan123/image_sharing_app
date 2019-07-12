@@ -17,6 +17,7 @@ Things you may want to cover:
 
 * Database creation
   - rails db:create
+  - rails db:migrate
 
 * Database initialization
 
