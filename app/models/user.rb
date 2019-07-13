@@ -6,4 +6,7 @@ class User < ApplicationRecord
   # Association
   has_many :albums, dependent: :destroy
   has_many :images, dependent: :destroy
+
+  # Validation
+  validates :name, presence: true
 end
