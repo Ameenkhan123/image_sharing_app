@@ -1,34 +1,47 @@
-<section id="main-content">
-  <section class="wrapper">
-    <div class="panel">
-      <header class="panel-heading">
-        <h2>All Album</h2>
-        <% if user_signed_in? %>
-          <%= link_to 'Add',new_album_path, class: "btn btn-default pull-right" %>
-        <% end %>
-      </header>
-      <div class="panel-body">
-        <table class="table table-bordered table-hover general-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <% @albums.each do |album| %>
-            <tbody>
-              <tr>
-                <td>
-                  <%= album.name %>
-                </td>
-                <td>
-                  <%= link_to 'Show', album_path(album) %>
-                </td>
-              </tr>
-            </tbody>
+<% @albums.each do |album| %>
+  <div class="cate_type margin_top_15px">
+    <div class="col-md-12">
+      <div class="postby borbot1px">
+        <%#= link_to(profile_path(post.user)) do %>
+        <strong>Owner Name: <%= album.user.name.try(:titleize) %></strong>
+        <%# end %>
+        <br>
+        <span>
+          Album Name:
+          <%= link_to album_path(album) do  %>
+            <%= album.name.try(:titleize) %>
           <% end %>
-        </table>
+        </span>
+        &nbsp;
+        <span>
+          <i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Create Date"></i> <%= formate_datetime(album.created_at) %>
+        </span> &nbsp;
       </div>
     </div>
-  </section>
-</section>
+    <div class="text-right editdeletbtnholder">
+      <% if album.user.id.present? %>
+        <span>
+          <%= link_to(album_path(album),
+          data: {confirm: 'Are you sure?'}, method: :delete) do %>
+          <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Delete"></i>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+    <div>
+      <% album.images.each do |img| %>
+        <span class="col-md-12">
+          <%= image_tag(img.photo_url, class: "imagesize") if img.photo? %>
+        </span>
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+<% end %>
+<style type="text/css">
+  .imagesize{
+    width: 9%!important;
+    height: 11%!important;
+    padding: 3px;
+  }
+</style>

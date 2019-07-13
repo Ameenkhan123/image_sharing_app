@@ -1,34 +1,41 @@
-<section id="main-content">
-  <section class="wrapper">
-    <div class="panel">
-      <header class="panel-heading">
-        <h2>
-          <%= @album.try(:name) %>
-          <%= link_to 'Back', root_path, class: "btn btn-default pull-right" %>
-        </h2>
-      </header>
-      <div class="panel-body">
-        <p>
-          <b>
-            Name:
-          </b>
-          <%= @album.name %>
-        </p>
-        <br/>
+<div class="cate_type margin_top_15px">
+  <div>
+    <div class="col-md-12">
+      <div class="borbot1px">
+        <%#= link_to(profile_path(@album.user)) do %>
+        <strong>Owner Name: <%= @album.user.name.try(:titleize) %></strong>
+        <%# end %>
+        <br>
+        <span>
+          Album Name:
+          <%= link_to @album.name.titleize, '#' %>
+        </span>
+        &nbsp;
+        <span>
+          <i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Created&Date"></i> <%= formate_datetime(@album.created_at) %>
+        </span> &nbsp;
+      </div>
+      <div class="text-right editdeletbtnholder">
+        <% if @album.user.id %>
+          <span>
+            <%= link_to(album_path(@album),
+            data: {confirm: 'Are you sure?'}, method: :delete) do %>
+              <i class="fa fa-trash-o" aria-hidden="true" data-toggle="tooltip" title="Delete"></i>
+            <% end %>
+          </span>
+        <% end %>
+      </div>
+      <div>
         <% @album.images.each do |img| %>
-          <span class="photosize">
+          <span class="col-md-12">
             <%= image_tag(img.photo_url, class: "photosize") if img.photo? %>
           </span>
         <% end %>
-        <br>
-        <% if user_signed_in? %>
-          <%= link_to 'Destroy', album_path(@album),
-            data: {:confirm => 'Are you sure?'}, :method => :delete %>
-        <% end %>
       </div>
+      <div class="clearfix"></div>
     </div>
-  </section>
-</section>
+  </div>
+</div>
 <style type="text/css">
   img.photosize{
     width: 13%!important;
