@@ -1,0 +1,11 @@
+<!-- Sidebar -->
+<div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading">Image sharing App </div>
+  <div class="list-group list-group-flush">
+    <%= link_to "Dashboard", root_path, class: "list-group-item list-group-item-action bg-light" %>
+    <% if user_signed_in? %>
+      <%= link_to "Timelne", albums_path, class: "list-group-item list-group-item-action bg-light"%>
+    <% end %>
+  </div>
+</div>
+<!-- /#sidebar-wrapper -->
