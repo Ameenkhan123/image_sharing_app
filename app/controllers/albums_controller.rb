@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 	# GET /admin/albums
 	def index
-		@albums = Album.all
+		@albums = current_user.albums.all.order(created_at: :desc)
 	end
 
 	# GET /admin/albums/new
