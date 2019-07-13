@@ -67,4 +67,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 # Add Devise gem
 gem 'devise'
-
+# Add carrierwave
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+# Add mini magick
+gem "mini_magick"
