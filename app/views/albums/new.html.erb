@@ -7,7 +7,7 @@
       </h2>
     </header>
     <div class="panel-body">
-      <%= form_for(@album, url: albums_path) do |f| %>
+      <%= form_for(@album, url: albums_path,html: {multipart: :true}) do |f| %>
         <%= render "form", f: f %>
       <% end %>
     </div>

@@ -15,9 +15,13 @@
           <%= @album.name %>
         </p>
         <br/>
+        <% @album.images.each do |img| %>
+          <span class="photosize">
+            <%= image_tag(img.photo_url, class: "photosize") if img.photo? %>
+          </span>
+        <% end %>
+        <br>
         <% if user_signed_in? %>
-          <%= link_to 'Edit',edit_album_path(@album) %>
-          <br/>
           <%= link_to 'Destroy', album_path(@album),
             data: {:confirm => 'Are you sure?'}, :method => :delete %>
         <% end %>
@@ -25,3 +29,10 @@
     </div>
   </section>
 </section>
+<style type="text/css">
+  img.photosize{
+    width: 13%!important;
+    height: 20%!important;
+    padding: 10px;
+  }
+</style>
