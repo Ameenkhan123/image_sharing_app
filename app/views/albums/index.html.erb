@@ -1,6 +1,14 @@
 <% if @albums.present? %>
 	<div class="cate_type margin_top_15px">
 		<h3 class="text-center">User Profile</h3>
+    <strong>Owner Name:
+      <%= current_user.name %>
+    </strong>
+    <span class="pull-right">
+      <strong>Owner Email:
+        <%= current_user.email %>
+      </strong>
+      </span>
 	</div>
 	<% @albums.each do |album| %>
 		<div class="cate_type margin_top_15px">
@@ -11,7 +19,7 @@
 					<%# end %>
 					<br>
 					<span>
-						Album Name:
+						<strong>Album Name:</strong>
 						<%= link_to album_path(album) do  %>
 							<%= album.name.try(:titleize) %>
 						<% end %>
@@ -21,7 +29,7 @@
 						<i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Create Date"></i> <%= formate_datetime(album.created_at) %>
 					</span> &nbsp;
 				</div>
-			</div>
+			</div><br>
 			<div class="text-right editdeletbtnholder">
 				<% if user_signed_in? && current_user.is_associated_album?(album.user.id) %>
 					<span>
