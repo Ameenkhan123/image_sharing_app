@@ -1492,3 +1492,14 @@ position: absolute;
   padding: 3px!important;
   border: 1px solid;
 }
+.padding-right-text{
+  padding-right: 2% !important;
+}
+.navbar {
+  position: relative !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.6rem 1rem !important;
+}
