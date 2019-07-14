@@ -6,7 +6,7 @@
 <div class="field">
   <%= f.fields_for :images do |image| %>
     <strong><%= image.label :photo %>*</strong>
-    <%= image.file_field :photo, multiple: true,name: "images_attributes[photo][]", class: "form-control" %>
+    <%= image.file_field :photo, multiple: true,name: "images_attributes[photo][]", class: "form-control", required: true %>
   <% end %>
 </div>
 <br>

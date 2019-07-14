@@ -13,20 +13,28 @@ class AlbumsController < ApplicationController
 	# POST /admin/albums
 	def create
 		@album = current_user.albums.new(album_params)
-		if @album.save
-			params[:images_attributes]['photo'].each do |a|
-				@image = @album.images.new(photo: a, album_id:  @album.id)
-				if @image.valid?
-					@image.save
+		@album.images.build
+		ActiveRecord::Base.transaction do
+		 	if params[:images_attributes]['photo'].size <= 25
+				if @album.save
+					params[:images_attributes]['photo'].each do |a|
+						@image = @album.images.new(photo: a, album_id:  @album.id)
+						if @image.valid?
+							@image.save
+						else
+							flash[:error] = @image.errors.full_messages
+						end
+					end
+					flash[:success] = "Album was successfully created."
+					redirect_to album_path(@album)
 				else
-					flash[:error] = @image.errors.full_messages
+					flash[:error] = @album.errors.full_messages
+					render "new"
 				end
+			else
+				flash[:error] = "Sorry only maximum 25 image upload."
+				render "new"
 			end
-			flash[:success] = "Album was successfully created."
-			redirect_to album_path(@album)
-		else
-			flash[:error] = @album.errors.full_messages
-			render "new"
 		end
 	end
 
