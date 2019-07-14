@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
 		@album = current_user.albums.new(album_params)
 		if @album.save
 			params[:images_attributes]['photo'].each do |a|
-				@image = @album.images.new(photo: a, album_id:  @album.id, user_id: @album.user.id)
+				@image = @album.images.new(photo: a, album_id:  @album.id)
 				if @image.valid?
 					@image.save
 				else
