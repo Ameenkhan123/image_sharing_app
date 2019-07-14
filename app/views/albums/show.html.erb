@@ -16,7 +16,7 @@
         </span> &nbsp;
       </div>
       <div class="text-right editdeletbtnholder">
-        <% if @album.user.id %>
+        <% if user_signed_in? && current_user.is_associated_album?(@album.user.id) %>
           <span>
             <%= link_to(album_path(@album),
             data: {confirm: 'Are you sure?'}, method: :delete) do %>
