@@ -1488,9 +1488,12 @@ position: absolute;
 }
 .imagesize{
   width: 9%!important;
-  height: 11%!important;
-  padding: 3px!important;
-  border: 1px solid;
+  height: 11% !important;
+  border: 1px white #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
 }
 .padding-right-text{
   padding-right: 2% !important;
