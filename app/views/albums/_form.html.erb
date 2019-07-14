@@ -1,11 +1,11 @@
 <div class="field">
-  <%= f.label :album_name %>
+  <strong><%= f.label :album_Name %>*</strong>
   <%= f.text_field :name, autofocus: true, class: "form-control" %>
 </div>
 <br>
 <div class="field">
   <%= f.fields_for :images do |image| %>
-    <%= image.label :photo %>
+    <strong><%= image.label :photo %>*</strong>
     <%= image.file_field :photo, multiple: true,name: "images_attributes[photo][]", class: "form-control" %>
   <% end %>
 </div>
