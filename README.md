@@ -10,21 +10,26 @@ Things you may want to cover:
 * Rails version: 5.2.3
 
 * System dependencies
+  - ruby 2.6.1
+  - rails 5.2.3
 
-* Configuration
-  - config/database.yml
-  - config/master.key
-
-* Database creation
-  - rails db:create
-  - rails db:migrate
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Database Using
+  - postgres
 
 * Deployment instructions
+  * Create Gemset
+    - rvm gemset create [name of gemset]
+    - rvm --rvmrc [ruby version here]@[name of gemset]
+    - bundle install
 
-* ...
+  * Create Database.yml
+    - config/database.yml
+
+  * Configuration
+    - config/database.yml
+    - Delete the old "credentials.yml.enc" and run this command "EDITOR="mate --wait" bin/rails credentials:edit"
+
+  * Create database
+    - rails db:create
+    - rails db:migrate
+    - rails server
