@@ -90,38 +90,7 @@ ul {
   background:#c32f10;
   color:#fff;
 }
-.socialmedialink a:last-child{
-  background:#7e2b12;
-  color:#fff;
-}
-.nopadd{
-  padding: 0px;
-}
-.search_post{
-  border: none;
-  border-radius: 0px;
-  box-shadow: none !important;
-  height: 44px;
-  font-size: 14px;
-  padding: 0px 39px 0 10px;
-  float:left;
-}
-.searchbar .form-group{
-  border:0px solid #e5e5e5;
-  margin-right:3px;
-}
-.searchbar button{
-  position: absolute;
-  right: 0px;
-  background: #7e2b12;
-  color: #fff;
-  padding: 0px 15px;
-  height: 44px;
-  line-height: 44px;
-  font-size: 14px;
-  border-radius: 0;
-  border:0px;
-}
+
 input.bf {
   border: none;
   background: #7e2b12;
@@ -139,13 +108,6 @@ body{
 }
 .header-top i {
   font-size: 18px;
-}
-.bg-image {
-  background: url(../images/background-login.jpg) no-repeat 0 0 / cover;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: table;
 }
 .login-header {
   display: inline-block;
