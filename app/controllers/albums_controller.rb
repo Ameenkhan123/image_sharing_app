@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
 				end
 			end
 			flash[:success] = "Album was successfully created."
-			redirect_to root_path
+			redirect_to album_path(@album)
 		else
 			flash[:error] = @album.errors.full_messages
 			render "new"
