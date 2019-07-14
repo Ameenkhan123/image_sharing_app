@@ -1,23 +1,26 @@
 <% if @albums.present? %>
 	<div class="cate_type margin_top_15px">
 		<h3 class="text-center">User Profile</h3>
-    <strong>Owner Name:
-      <%= current_user.name %>
-    </strong>
-    <span class="pull-right">
-      <strong>Owner Email:
-        <%= current_user.email %>
-      </strong>
-      </span>
+		<strong>Owner Name:
+			<span class= "linkcolor"><%= current_user.name %></span>
+		</strong>
+		<span class="pull-right">
+			<strong>Owner Email:
+				<span class= "linkcolor"><%= current_user.email %></span>
+			</strong>
+		</span>
 	</div>
 	<% @albums.each do |album| %>
 		<div class="cate_type margin_top_15px">
 			<div class="col-md-12">
 				<div class="borbot1px">
 					<%#= link_to(profile_path(album.user)) do %>
-					<strong>Owner Name: <%= album.user.name.try(:titleize) %></strong>
+					<strong class="pull-right" style="padding-right: 2%">Owner Name:
+						<span class= "linkcolor">
+							<%= album.user.name.try(:titleize) %>
+						</span>
+					</strong>
 					<%# end %>
-					<br>
 					<span>
 						<strong>Album Name:</strong>
 						<%= link_to album_path(album) do  %>
@@ -25,9 +28,9 @@
 						<% end %>
 					</span>
 					&nbsp;
-					<span>
-						<i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Create Date"></i> <%= formate_datetime(album.created_at) %>
-					</span> &nbsp;
+					<strong>
+						<i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Create Date"></i> <span class= "linkcolor"><%= formate_datetime(album.created_at) %></span>
+					</strong> &nbsp;
 				</div>
 			</div><br>
 			<div class="text-right editdeletbtnholder">
@@ -40,23 +43,14 @@
 					</span>
 				<% end %>
 			</div>
-			<div>
-				<% album.images.each do |img| %>
-					<span class="col-md-12">
-						<%= image_tag(img.photo_url, class: "imagesize") if img.photo? %>
-					</span>
-				<% end %>
-			</div>
+			<% album.images.each do |img| %>
+				<span class="col-md-12">
+					<%= image_tag(img.photo_url, class: "imagesize") if img.photo? %>
+				</span>
+			<% end %>
 			<div class="clearfix"></div>
 		</div>
 	<% end %>
 <% else %>
 	<h2>No Album Created</h2>
 <% end %>
-<style type="text/css">
-	.imagesize{
-		width: 9%!important;
-		height: 11%!important;
-		padding: 3px;
-	}
-</style>

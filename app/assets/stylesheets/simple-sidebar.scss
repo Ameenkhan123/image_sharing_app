@@ -767,7 +767,7 @@ header {
   margin-top: 30px;
 }
 .margin_top_15px{
-  margin-top: 15px;
+  margin-top: 5px !important;
 }
 
 .formbox{
@@ -1477,4 +1477,18 @@ position: absolute;
   margin-top: 30px;
   margin-bottom: 0;
   font-weight: 800;
+}
+.linkcolor{
+  outline: none !important;
+  text-decoration: none !important;
+  color: #7e2b12 !important;
+}
+.top-trash{
+  margin-top: 0.8%;
+}
+.imagesize{
+  width: 9%!important;
+  height: 11%!important;
+  padding: 3px!important;
+  border: 1px solid;
 }

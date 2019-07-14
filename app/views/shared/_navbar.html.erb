@@ -18,10 +18,10 @@
 				<% if user_signed_in? %>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<b><%= current_user.name.try(:titleize) %></b>
+							<strong class="linkcolor"><%= current_user.name.try(:titleize) %></strong>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+							<%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item linkcolor") %>
 						</div>
 					</li>
 				<% end %>

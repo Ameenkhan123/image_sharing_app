@@ -3,22 +3,21 @@
     <div class="col-md-12">
       <div class="postby borbot1px">
         <%#= link_to(profile_path(album.user)) do %>
-        <strong>Owner Name: <%= album.user.name.try(:titleize) %></strong>
+        <strong class="pull-right" style="padding-right: 2%">Owner Name: <span class= "linkcolor"><%= album.user.name.try(:titleize) %></span></strong>
         <%# end %>
-        <br>
-        <span>
+        <strong>
           Album Name:
           <%= link_to album_path(album) do  %>
             <%= album.name.try(:titleize) %>
           <% end %>
-        </span>
+        </strong>
         &nbsp;
-        <span>
-          <i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Create Date"></i> <%= formate_datetime(album.created_at) %>
-        </span> &nbsp;
+        <strong>
+          <i class="fa fa-clock-o" aria-hidden="true" style="font-size:15px" data-toggle="tooltip" title="Create Date"></i> <span  class= "linkcolor"><%= formate_datetime(album.created_at) %></span>
+        </strong> &nbsp;
       </div>
     </div>
-    <div class="text-right editdeletbtnholder">
+    <div class="text-right editdeletbtnholder top-trash">
       <% if user_signed_in? && current_user.is_associated_album?(album.user.id) %>
         <span>
           <%= link_to(album_path(album),
@@ -38,10 +37,3 @@
     <div class="clearfix"></div>
   </div>
 <% end %>
-<style type="text/css">
-  .imagesize{
-    width: 9%!important;
-    height: 11%!important;
-    padding: 3px;
-  }
-</style>
